@@ -3,12 +3,15 @@ NAME		= a.out
 CC			= gcc
 CFLAGS		= -Wall -Wextra 
 
-SRC			= main.c
+SRC			= main.c \
+			  display_pixel.c \
+			  display_image.c \
+			  key_press.c \
+
 OBJ			= $(SRC:.c=.o)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
-
 
 all: $(NAME)
 
