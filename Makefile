@@ -1,10 +1,9 @@
 NAME		= a.out
 
-CC			= gcc
+CC			= gcc -g
 CFLAGS		= -Wall -Wextra 
 
 SRC			= main.c \
-			  display_pixel.c \
 			  display_image.c \
 			  key_press.c \
 
