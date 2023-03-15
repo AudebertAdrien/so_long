@@ -3,4 +3,6 @@ a.out
 *.*gch
 *.swp
 *.tar
+*.nfs*
 mlx_linux/
+
