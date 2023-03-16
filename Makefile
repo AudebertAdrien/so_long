@@ -6,6 +6,7 @@ CFLAGS		= -Wall -Wextra
 SRC			= main.c \
 			  display_image.c \
 			  key_press.c \
+			  open_window.c \
 
 OBJ			= $(SRC:.c=.o)
 
