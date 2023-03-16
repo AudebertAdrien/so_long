@@ -7,6 +7,11 @@ SRC			= main.c \
 			  display_image.c \
 			  key_press.c \
 			  open_window.c \
+			  libft/ft_split.c \
+			  libft/ft_calloc.c \
+			  libft/ft_substr.c \
+			  libft/ft_bzero.c \
+			  libft/ft_strlen.c \
 
 OBJ			= $(SRC:.c=.o)
 
