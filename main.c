@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 15:20:00 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/16 12:28:09 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/17 11:53:29 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ int	main(int argc, char **argv)
 	t_vars	vars;
 	char	**tab;
 
-
-
 	printf("\nHELLO WORLD\n");
 	fd = open("map/map_1.txt", O_RDONLY);
 	printf("%d\n", fd);
@@ -31,7 +29,6 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	bytes_read = read(fd, buf, 100);	
-	printf("%d\n", bytes_read);
 	if (bytes_read == -1)
 	{
 		printf("An error occured while trying to read file.\n");
@@ -39,13 +36,12 @@ int	main(int argc, char **argv)
 	}
 	printf("END\n");
 
-	/*
-	tab = ft_split(buf);	
+	tab = ft_split(buf, '\n');	
 	open_window(&vars);
 	display_image(&vars);
 	
-	mlx_key_hook(vars.win, key_press, &vars);
+	//mlx_key_hook(vars.win, key_press, &vars);
 	mlx_loop(vars.mlx);
-	*/
+	free(tab);
 	return (0);
 }

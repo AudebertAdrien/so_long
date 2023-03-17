@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 16:04:10 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/16 11:43:35 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/17 11:45:20 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,6 @@ int		display_pixel();
 int		display_image();
 int		key_press(int keycode, t_vars *vars);
 int		open_window(t_vars *vars);
+int		handle_file();
 
 #endif

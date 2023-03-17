@@ -7,6 +7,7 @@ SRC			= main.c \
 			  display_image.c \
 			  key_press.c \
 			  open_window.c \
+			  handle_file.c \
 			  libft/ft_split.c \
 			  libft/ft_calloc.c \
 			  libft/ft_substr.c \
@@ -21,7 +22,7 @@ OBJ			= $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+	$(CC) $(OBJ) -fsanitize=address -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 
 clean:
 	rm -f $(OBJ) 
