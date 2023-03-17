@@ -6,3 +6,4 @@ a.out
 *.nfs*
 mlx_linux/
 libft/
+get_next_line/

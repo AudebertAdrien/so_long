@@ -7,12 +7,14 @@ SRC			= main.c \
 			  display_image.c \
 			  key_press.c \
 			  open_window.c \
-			  handle_file.c \
 			  libft/ft_split.c \
 			  libft/ft_calloc.c \
-			  libft/ft_substr.c \
 			  libft/ft_bzero.c \
+			  libft/ft_substr.c \
 			  libft/ft_strlen.c \
+			  libft/ft_strjoin.c \
+			  libft/ft_strdup.c \
+			  get_file.c \
 
 OBJ			= $(SRC:.c=.o)
 

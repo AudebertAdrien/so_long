@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:12:37 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/15 09:12:54 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/17 12:02:02 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	key_press(int keycode, t_vars *vars)
 		mlx_destroy_window(vars->mlx, vars->win);
 		free(vars->mlx);
 	}
-
 	return (0);
 }
 

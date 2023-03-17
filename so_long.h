@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 16:04:10 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/17 11:45:20 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/17 17:29:05 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@
 #define WINDOW_HEIGHT 200
 #define MLX_ERROR 1
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 100
+# endif
+
 typedef struct s_image_data {
 
 	void	*img;
@@ -38,10 +42,16 @@ typedef struct s_vars {
 	void	*win;
 }	t_vars;
 
-int		display_pixel();
+char	*get_file();
+int		open_window(t_vars *vars);
 int		display_image();
 int		key_press(int keycode, t_vars *vars);
-int		open_window(t_vars *vars);
-int		handle_file();
+
+char	*ft_strjoin(char const *s1, char const *s2);
+void	*ft_calloc(size_t nmemb, size_t size);
+void	ft_bzero(void *s, size_t n);
+char	*ft_strdup(const char *s);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+
 
 #endif
