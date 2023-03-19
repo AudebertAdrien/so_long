@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 14:39:20 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/17 17:47:30 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/19 13:41:28 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,8 @@ char	*read_file(int fd)
 {
 	char	buf[BUFFER_SIZE];
 	int		bytes_read;
-	char *str;
+	char	*str;
 
-	char *test;
 	bytes_read = 1;
 	str = ft_calloc(1, 1);
 	while (bytes_read > 0)
