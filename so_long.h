@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 16:04:10 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/20 16:31:48 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/20 18:01:46 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # include <fcntl.h>
 # include <mlx.h>
 
-#define WINDOW_WIDTH 200
-#define WINDOW_HEIGHT 200
+#define WINDOW_WIDTH 400
+#define WINDOW_HEIGHT 400
 #define MLX_ERROR 1
 
 # ifndef BUFFER_SIZE
@@ -40,6 +40,7 @@ typedef struct s_image_data {
 typedef struct s_vars {
 	void	*mlx;
 	void	*win;
+	char	**map;
 	int		is_error;
 
 	t_image_data background;
@@ -53,7 +54,7 @@ typedef struct s_vars {
 char	*get_file();
 int		open_window(t_vars *vars);
 void	setup_image(t_vars *vars);
-int		display_image(t_vars *vars, char **map);
+int		display_image(t_vars *vars);
 int		key_press(int keycode, t_vars *vars);
 
 char	*ft_strjoin(char const *s1, char const *s2);

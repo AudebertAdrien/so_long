@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 15:20:00 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/20 16:24:28 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/20 18:01:23 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,23 +31,21 @@ int	main(void)
 {	
 	t_vars	vars;
 	char 	*line;
-	char	**map;
 
 	line = get_file();
 	printf("\n%s\n", line);
-	map = ft_split(line, '\n');
+	vars.map = ft_split(line, '\n');
 
 	open_window(&vars);
 	setup_image(&vars);
-	display_image(&vars, map);
+	display_image(&vars);
 
 	printf("END\n");
-	//mlx_key_hook(vars.win, key_press, &vars);
-	//mlx_loop_hook(vars.mlx, ft_test, &vars);
+	mlx_key_hook(vars.win, key_press, &vars);
+	mlx_loop_hook(vars.mlx, display_image, &vars);
 	mlx_loop(vars.mlx);
 
 	free(line);
-	free(map);
 	return (0);
 }
 	/*

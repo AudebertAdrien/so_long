@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 14:26:53 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/20 16:32:19 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/20 17:01:39 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,5 @@ void	setup_image(t_vars *vars)
 	file_to_image(vars, &(vars->collectible));
 	file_to_image(vars, &(vars->exit));
 	file_to_image(vars, &(vars->character));
-
 	return ;
 }
