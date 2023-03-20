@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 16:04:10 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/19 14:58:59 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/20 15:28:31 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ char	*get_file();
 int		open_window(t_vars *vars);
 int		display_image();
 int		key_press(int keycode, t_vars *vars);
+char	**setup_image();
 
 char	*ft_strjoin(char const *s1, char const *s2);
 void	*ft_calloc(size_t nmemb, size_t size);

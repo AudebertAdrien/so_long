@@ -6,40 +6,37 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:14:41 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/16 11:22:40 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/20 15:24:29 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	display_image(t_vars *vars)
+int	display_image(t_vars *vars, char **map)
 {
-	t_image_data	background;
-	t_image_data	shield;
+	int				i;
+	int				j;
 
-	background.addr = "./images/test.xpm"; //370x330
-	shield.addr = "./images/BRICK_1A.xpm"; //40x40
-	
-	background.img = mlx_xpm_file_to_image(vars->mlx, background.addr, &background.img_width, &background.img_height);
-	if (background.img == NULL)
+	i = 0;
+	j = 0;
+	while (map[i])
 	{
-		free(background.img);
-		return (MLX_ERROR);
+		j = 0;
+		while (map[i][j])
+		{
+			if (map[i][j] == '0')
+				mlx_put_image_to_window(vars->mlx, vars->win, background.img, i * 40, j * 40);
+			if (map[i][j] == '1')
+				mlx_put_image_to_window(vars->mlx, vars->win, wall.img, i * 40, j * 40);
+			if (map[i][j] == 'c')
+				mlx_put_image_to_window(vars->mlx, vars->win, collectible.img, i * 40, j * 40);
+			if (map[i][j] == 'p')
+				mlx_put_image_to_window(vars->mlx, vars->win, character.img, i * 40, j * 40);
+			if (map[i][j] == 'e')
+				mlx_put_image_to_window(vars->mlx, vars->win, exit.img, i * 40, j * 40);
+			j++;			
+		}
+		i++;
 	}
-	shield.img = mlx_xpm_file_to_image(vars->mlx, shield.addr, &background.img_width, &background.img_height);
-	if (shield.img == NULL)
-	{
-		free(shield.img);
-		return (MLX_ERROR);
-	}
-	
-	mlx_put_image_to_window(vars->mlx, vars->win, background.img, 0, 0);
-	
-	mlx_put_image_to_window(vars->mlx, vars->win, shield.img, 0, 40);
-	mlx_put_image_to_window(vars->mlx, vars->win, shield.img, 40, 40);
-	mlx_put_image_to_window(vars->mlx, vars->win, shield.img, 80, 40);
-	mlx_put_image_to_window(vars->mlx, vars->win, shield.img, 120, 40);
-	mlx_put_image_to_window(vars->mlx, vars->win, shield.img, 160, 40);
-
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:12:37 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/17 12:02:02 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/20 12:52:09 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,26 @@
 
 int	key_press(int keycode, t_vars *vars)
 {
-
-	printf("%i\n", keycode);
+	printf("keycode : %i\n", keycode);
 	if (keycode == 65307)
 	{
 		mlx_destroy_display(vars->mlx);
 		mlx_destroy_window(vars->mlx, vars->win);
 		free(vars->mlx);
 	}
+	if (keycode == 119)
+	{
+	}
+	if (keycode == 97)
+	{
+	}
+	if (keycode == 115)
+	{
+	}
+	if (keycode == 1000)
+	{
+	}
+
+
 	return (0);
 }
-
-
-
