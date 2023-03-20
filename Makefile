@@ -4,10 +4,11 @@ CC			= gcc -g
 CFLAGS		= -Wall -Wextra 
 
 SRC			= main.c \
-			  key_press.c \
-			  open_window.c \
 			  get_file.c \
+			  open_window.c \
 			  setup_image.c \
+			  display_image.c \
+			  key_press.c \
 			  libft/ft_split.c \
 			  libft/ft_calloc.c \
 			  libft/ft_bzero.c \
@@ -15,7 +16,6 @@ SRC			= main.c \
 			  libft/ft_strlen.c \
 			  libft/ft_strjoin.c \
 			  libft/ft_strdup.c \
-			  #display_image.c \
 
 OBJ			= $(SRC:.c=.o)
 

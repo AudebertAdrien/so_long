@@ -6,11 +6,12 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 14:39:20 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/19 13:41:28 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/20 16:15:03 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
 char	*ft_free_and_join(char *stash, char *buf)
 {
 	char	*temp;
