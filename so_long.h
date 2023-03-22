@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 16:04:10 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/22 11:56:10 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/22 15:46:16 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ typedef struct s_image_data {
 	char	*addr;
 	int		img_width;
 	int		img_height;
-	int		pos;
 	int		pos_y;
 	int		pos_x;
 }	t_image_data;
@@ -59,6 +58,8 @@ int		open_window(t_vars *vars);
 void	setup_image(t_vars *vars);
 int		display_image(t_vars *vars);
 int		key_press(int keycode, t_vars *vars);
+
+void	free_map(char **map);
 
 size_t	ft_strlen(const char *str);
 char	*ft_strjoin(char const *s1, char const *s2);

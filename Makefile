@@ -4,6 +4,7 @@ CC			= gcc -g
 CFLAGS		= -Wall -Wextra 
 
 SRC			= main.c \
+			  so_long_utils.c \
 			  get_file.c \
 			  open_window.c \
 			  setup_image.c \
@@ -25,7 +26,8 @@ OBJ			= $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -fsanitize=address -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+	$(CC) $(OBJ)  -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+	#$(CC) $(OBJ) -fsanitize=address -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 
 clean:
 	rm -f $(OBJ) 
