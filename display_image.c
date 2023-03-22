@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:14:41 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/20 18:01:06 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/22 11:55:02 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,11 @@ int	display_image(t_vars *vars)
 			if (vars->map[i][j] == 'c')
 				mlx_put_image_to_window(vars->mlx, vars->win, vars->collectible.img, i * 40, j * 40);
 			if (vars->map[i][j] == 'p')
+			{
+				vars->character.pos_y = i;
+				vars->character.pos_x = j;
 				mlx_put_image_to_window(vars->mlx, vars->win, vars->character.img, i * 40, j * 40);
+			}
 			if (vars->map[i][j] == 'e')
 				mlx_put_image_to_window(vars->mlx, vars->win, vars->exit.img, i * 40, j * 40);
 			j++;			
