@@ -6,11 +6,12 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 15:20:00 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/22 15:40:33 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/22 17:49:05 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
 int	main(void)
 {	
 	t_vars	vars;
@@ -19,6 +20,8 @@ int	main(void)
 	line = get_file();
 	printf("\n%s\n", line);
 	vars.map = ft_split(line, '\n');
+	sizeof_map(&vars);
+
 	free(line);
 
 	open_window(&vars);
