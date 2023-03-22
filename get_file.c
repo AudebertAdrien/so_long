@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 14:39:20 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/20 16:15:03 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/22 17:58:28 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ char	*read_file(int fd)
 	return (str);
 }
 
-char	*get_file()
+char	*get_file(char *map_name)
 {
 	int	fd;
 
-	fd = open("map/map_1.txt", O_RDONLY);
+	fd = open(map_name, O_RDONLY);
 	if (fd == -1)
 	{
 		printf("An error occured while trying to open file.\n");

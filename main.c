@@ -6,18 +6,18 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 15:20:00 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/22 17:49:05 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/22 17:57:21 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(void)
+int	main(int argc, char *argv[])
 {	
 	t_vars	vars;
 	char 	*line;
 
-	line = get_file();
+	line = get_file(argv[1]);
 	printf("\n%s\n", line);
 	vars.map = ft_split(line, '\n');
 	sizeof_map(&vars);
