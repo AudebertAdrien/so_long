@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 15:20:00 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/22 17:57:21 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/26 15:24:27 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,14 @@ int	main(int argc, char *argv[])
 	line = get_file(argv[1]);
 	printf("\n%s\n", line);
 	vars.map = ft_split(line, '\n');
-	sizeof_map(&vars);
-
 	free(line);
+	handle_map(&vars);
 
 	open_window(&vars);
 	setup_image(&vars);
 	display_image(&vars);
+	if (vars.is_error == 1)
+		return (0);
 
 	printf("END\n");
 	mlx_key_hook(vars.win, key_press, &vars);

@@ -1,35 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long_utils.c                                    :+:      :+:    :+:   */
+/*   handle_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/22 15:05:53 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/26 15:25:27 by aaudeber         ###   ########.fr       */
+/*   Created: 2023/03/26 15:24:19 by aaudeber          #+#    #+#             */
+/*   Updated: 2023/03/26 15:31:05 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_is_error(char *ptr)
+void	is_square(int tmp, int x, int y)
 {
-	ft_putstr_fd(ptr, 2);
-	ft_putchar_fd('\n', 2);
-	exit(0);
+	if (tmp != x && y != 0)
+		ft_is_error("Map is not square!");
 }
 
-void free_map(char **map)
+void	handle_map(t_vars *vars)
 {
-	int	i;
+	int	y;
+	int	x;
+	int	tmp;
 
-	i = 0;
-	if (!map)
-		return ;
-	while (map[i])
+	tmp = 0;
+	y = 0;
+	x = 0;
+	while (vars->map[y])
 	{
-		free(map[i]);
-		i++;
+		x = 0;
+		while (vars->map[y][x])
+			x++;
+		is_square(tmp, x, y);
+		tmp = x;
+		y++;
 	}
-	free(map);
+	vars->map_y_size = y;
+	vars->map_x_size = x;
 }
+

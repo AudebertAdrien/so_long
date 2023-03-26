@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 14:39:20 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/22 17:58:28 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/26 14:31:12 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*read_file(int fd)
 		bytes_read = read(fd, buf, BUFFER_SIZE);
 		if (bytes_read == -1)
 		{
-			printf("An error occured while trying to read file.\n");
+			ft_is_error(strerror(errno));
 			return (NULL);
 		}
 		buf[bytes_read] = '\0';
@@ -52,10 +52,9 @@ char	*get_file(char *map_name)
 	fd = open(map_name, O_RDONLY);
 	if (fd == -1)
 	{
-		printf("An error occured while trying to open file.\n");
-		return (0);
+		ft_is_error(strerror(errno));
+		return (NULL);
 	}
 	return (read_file(fd));
 }
-
 

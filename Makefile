@@ -10,6 +10,7 @@ SRC			= main.c \
 			  setup_image.c \
 			  display_image.c \
 			  key_press.c \
+			  handle_map.c \
 			  libft/ft_split.c \
 			  libft/ft_calloc.c \
 			  libft/ft_bzero.c \
@@ -17,6 +18,8 @@ SRC			= main.c \
 			  libft/ft_strlen.c \
 			  libft/ft_strjoin.c \
 			  libft/ft_strdup.c \
+			  libft/ft_putchar_fd.c \
+			  libft/ft_putstr_fd.c \
 
 OBJ			= $(SRC:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:14:41 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/23 16:10:27 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/26 12:30:52 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,11 @@ int	get_b(int trgb)
 	return (trgb & 0xFF);
 }
 */
+
 int	display_image(t_vars *vars)
 {
 	int				y;
 	int				x;
-	
-	//int	mlx_string_put(void *mlx_ptr, void *win_ptr, int x, int y, int color, char *string);
 
 	y = 0;
 	while (vars->map[y])
