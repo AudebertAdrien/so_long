@@ -4,6 +4,6 @@ a.out
 *.swp
 *.tar
 *.nfs*
-mlx_linux/
+mlx/
 libft/
 get_next_line/

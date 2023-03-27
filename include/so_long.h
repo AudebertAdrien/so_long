@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 16:04:10 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/26 14:28:54 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/27 15:05:49 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <fcntl.h>
 # include <mlx.h>
 # include <errno.h>
+# include "../libft/libft.h"
 
 #define MLX_ERROR 1
 
@@ -45,7 +46,7 @@ typedef struct s_vars {
 	char	**map;
 	int		map_y_size;
 	int		map_x_size;
-	int		is_error;
+	int		count_moves;
 
 	t_image_data background;
 	t_image_data wall;
@@ -60,20 +61,11 @@ int		open_window(t_vars *vars);
 void	setup_image(t_vars *vars);
 int		display_image(t_vars *vars);
 int		key_press(int keycode, t_vars *vars);
+int		cross_button(t_vars *vars);
 
-void	free_map(char **map);
-void	sizeof_map(t_vars *vars);
 void	ft_is_error(char *ptr);
-
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putchar_fd(char c, int fd);
-
-size_t	ft_strlen(const char *str);
-char	*ft_strjoin(char const *s1, char const *s2);
-void	*ft_calloc(size_t nmemb, size_t size);
-void	ft_bzero(void *s, size_t n);
-char	*ft_strdup(const char *s);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	**ft_split(char const *s, char c);
+void	ft_exit(t_vars *vars);
+void	free_map(char **map);
+void	handle_map(t_vars *vars);
 
 #endif

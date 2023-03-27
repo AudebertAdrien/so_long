@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:14:41 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/26 12:30:52 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/27 16:27:55 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,6 @@ int	create_trgb(int t, int r, int g, int b)
 {
 	return (t << 24 | r << 16 | g << 8 | b);
 }
-/*
-int	get_t(int trgb)
-{
-	return ((trgb >> 24) & 0xFF);
-}
-
-int	get_r(int trgb)
-{
-	return ((trgb >> 16) & 0xFF);
-}
-
-int	get_g(int trgb)
-{
-	return ((trgb >> 8) & 0xFF);
-}
-
-int	get_b(int trgb)
-{
-	return (trgb & 0xFF);
-}
-*/
 
 int	display_image(t_vars *vars)
 {
@@ -49,21 +28,21 @@ int	display_image(t_vars *vars)
 		x = 0;
 		while (vars->map[y][x])
 		{
-			mlx_string_put(vars->mlx, vars->win, 10, 10, create_trgb(0,0,0,255), "TEST");
+			//mlx_string_put(vars->mlx, vars->win, 10, 10, create_trgb(0,0,0,0), ft_itoa(vars->count_moves));
 
 			if (vars->map[y][x] == '0')
 				mlx_put_image_to_window(vars->mlx, vars->win, vars->background.img, x * 32, y * 32);
 			if (vars->map[y][x] == '1')
 				mlx_put_image_to_window(vars->mlx, vars->win, vars->wall.img, x * 32, y * 32);
-			if (vars->map[y][x] == 'c')
+			if (vars->map[y][x] == 'C')
 				mlx_put_image_to_window(vars->mlx, vars->win, vars->collectible.img, x * 32, y * 32);
-			if (vars->map[y][x] == 'p')
+			if (vars->map[y][x] == 'P')
 			{
 				vars->character.pos_y = y;
 				vars->character.pos_x = x;
 				mlx_put_image_to_window(vars->mlx, vars->win, vars->character.img, x * 32, y * 32);
 			}
-			if (vars->map[y][x] == 'e')
+			if (vars->map[y][x] == 'E')
 				mlx_put_image_to_window(vars->mlx, vars->win, vars->exit.img, x * 32, y * 32);
 			x++;			
 		}

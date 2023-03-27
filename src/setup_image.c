@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 14:26:53 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/20 17:01:39 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/27 15:03:48 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,7 @@ void	file_to_image(t_vars *vars, t_image_data *obj)
 {
 	obj->img = mlx_xpm_file_to_image(vars->mlx, obj->addr, &obj->img_width, &obj->img_height);
 	if (obj->img == NULL)
-	{
 		free(obj->img);
-		vars->is_error = MLX_ERROR;
-	}
 	return ;
 }
 

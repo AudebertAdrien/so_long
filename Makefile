@@ -3,39 +3,43 @@ NAME		= a.out
 CC			= gcc -g
 CFLAGS		= -Wall -Wextra 
 
-SRC			= main.c \
-			  so_long_utils.c \
-			  get_file.c \
-			  open_window.c \
-			  setup_image.c \
-			  display_image.c \
-			  key_press.c \
-			  handle_map.c \
-			  libft/ft_split.c \
-			  libft/ft_calloc.c \
-			  libft/ft_bzero.c \
-			  libft/ft_substr.c \
-			  libft/ft_strlen.c \
-			  libft/ft_strjoin.c \
-			  libft/ft_strdup.c \
-			  libft/ft_putchar_fd.c \
-			  libft/ft_putstr_fd.c \
+MLX_FLAG	= -Lmlx -lmlx -L/usr/lib -Imlx -lXext -lX11 -lm -lz
 
-OBJ			= $(SRC:.c=.o)
+SRCS		= src/main.c \
+			  src/so_long_utils.c \
+			  src/get_file.c \
+			  src/open_window.c \
+			  src/setup_image.c \
+			  src/display_image.c \
+			  src/key_press.c \
+			  src/handle_map.c \
 
-%.o: %.c
-	$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
+INC			= -I ./include -I ./libft -I ./mlx
 
-all: $(NAME)
+OBJ			= $(SRCS:src/%.c=obj/%.o)
+
+lft: 
+	@echo "\nMake libft\n"
+	@make re -s -C ./libft
+	@echo "\n==END==\n"
+	
+obj/%.o: src/%.c
+	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
+
+all: $(NAME) 
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ)  -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+	@echo "\nCompile\n"
+	@$(CC) $^ -o $@ -Llibft -lft $(MLX_FLAG)
+	@echo "\n==END==\n"
 
 clean:
-	rm -f $(OBJ) 
+	@rm -rf $(OBJ)
+	@rm -rf libft/*.o
+	@rm -rf mlx/*.o
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
