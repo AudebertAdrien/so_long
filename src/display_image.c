@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:14:41 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/27 16:27:55 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/29 15:42:32 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	display_image(t_vars *vars)
 		while (vars->map[y][x])
 		{
 			//mlx_string_put(vars->mlx, vars->win, 10, 10, create_trgb(0,0,0,0), ft_itoa(vars->count_moves));
-
 			if (vars->map[y][x] == '0')
 				mlx_put_image_to_window(vars->mlx, vars->win, vars->background.img, x * 32, y * 32);
 			if (vars->map[y][x] == '1')

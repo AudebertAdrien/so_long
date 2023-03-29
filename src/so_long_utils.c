@@ -6,11 +6,19 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:05:53 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/27 14:48:23 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/29 14:24:25 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+int	check_file_name(char *map_name)
+{
+	int	len;
+
+	len = ft_strlen(map_name) - 1;
+	return (ft_strncmp(&map_name[len - 3], ".ber", 4));
+}
 
 void	ft_is_error(char *ptr)
 {
@@ -35,7 +43,7 @@ void free_map(char **map)
 	free(map);
 }
 
-void	ft_exit(t_vars *vars)	
+int	ft_exit(t_vars *vars)	
 {
 	mlx_destroy_window(vars->mlx, vars->win);
 	mlx_destroy_image(vars->mlx, vars->background.img);
@@ -47,5 +55,6 @@ void	ft_exit(t_vars *vars)
 	free(vars->mlx);
 	free_map(vars->map);
 	exit(0);
+	return (0);
 }
 
