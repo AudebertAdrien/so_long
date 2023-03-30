@@ -11,7 +11,6 @@ SRCS		= src/main.c \
 			  src/open_window.c \
 			  src/setup_images.c \
 			  src/initialize_images.c \
-			  src/update_images.c \
 			  src/key_press.c \
 			  src/check_map.c \
 

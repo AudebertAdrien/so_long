@@ -6,11 +6,12 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:14:41 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/30 15:09:57 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/30 16:41:29 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
 
 int	initialize_images(t_vars *vars)
 {
@@ -42,5 +43,6 @@ int	initialize_images(t_vars *vars)
 		}
 		y++;
 	}
+	mlx_string_put(vars->mlx, vars->win, 10, 10, 0x000000 , ft_itoa(vars->count_moves));
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 15:24:19 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/30 12:54:10 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/30 17:14:54 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,16 @@ void	is_surrounded_by_wall(t_vars *vars, int max_y, int max_x)
 	}
 }
 
-void	is_right_element(t_vars *vars, int y, int x)
+void	check_elements(t_vars *vars, int y, int x)
 {
 	if (!ft_strchr("01CEP", vars->map[y][x]))
-		ft_is_error("map doesn't contain the right elements");
+		ft_is_error("map contains invalid elements");
+	if (vars->count_exit != 1)
+		ft_is_error("map contains invalid number of exits");
+	if (vars->count_character != 1)
+		ft_is_error("map contains invalid number of characters");
+	if (vars->count_collectible == 0)
+		ft_is_error("map contains invalid number of collectible");
 }	
 
 void	check_map(t_vars *vars)
@@ -62,7 +68,7 @@ void	check_map(t_vars *vars)
 		x = 0;
 		while (vars->map[y][x])
 		{
-			is_right_element(vars, y, x);
+			check_elements(vars, y, x);
 			x++;
 		}
 		is_square(tmp, x, y);

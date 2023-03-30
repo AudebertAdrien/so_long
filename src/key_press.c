@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:12:37 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/30 15:58:12 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/30 16:36:49 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ void	move_character(t_vars *vars, int line, int column)
 		vars->map[p_pos_y][p_pos_x] = 'E';
 	else
 		vars->map[p_pos_y][p_pos_x] = '0';
-	mlx_string_put(vars->mlx, vars->win, 10, 10, 0x000000 , ft_itoa(vars->count_moves));
 }
 
 
