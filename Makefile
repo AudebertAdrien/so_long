@@ -9,10 +9,11 @@ SRCS		= src/main.c \
 			  src/so_long_utils.c \
 			  src/get_file.c \
 			  src/open_window.c \
-			  src/setup_image.c \
-			  src/display_image.c \
+			  src/setup_images.c \
+			  src/initialize_images.c \
+			  src/update_images.c \
 			  src/key_press.c \
-			  src/handle_map.c \
+			  src/check_map.c \
 
 INC			= -I ./include -I ./libft -I ./mlx
 

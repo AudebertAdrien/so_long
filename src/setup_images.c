@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   setup_image.c                                      :+:      :+:    :+:   */
+/*   setup_images.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 14:26:53 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/27 15:03:48 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/30 15:17:41 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	file_to_image(t_vars *vars, t_image_data *obj)
 	return ;
 }
 
-void	setup_image(t_vars *vars)
+void	setup_images(t_vars *vars)
 {
 	vars->background.addr = "./images/white.xpm";
 	vars->wall.addr = "./images/red.xpm";

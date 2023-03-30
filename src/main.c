@@ -6,25 +6,25 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 15:20:00 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/30 12:26:26 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/30 15:24:00 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	initialize_map_size(y, x)
+void	initialize_map_size(t_vars *vars, int y, int x)
 {
 	vars->map_y_size = y;
 	vars->map_x_size = x;
 }
 
-void	initialize_c()
+void	initialize_c(t_vars *vars, int y, int x)
 {
 	if (vars->map[y][x] == 'C')
 		vars->count_collectible += 1;
 }
 
-void	initialize_e()
+void	initialize_e(t_vars *vars, int y, int x)
 {
 	if (vars->map[y][x] == 'E')
 	{
@@ -33,28 +33,37 @@ void	initialize_e()
 	}
 }
 
+void	initialize_p(t_vars *vars, int y, int x)
+{
+	if (vars->map[y][x] == 'P')
+	{
+		vars->character.pos_y = y;
+		vars->character.pos_x = x;
+	}
+}
 
-void	initialize(t_vars *vars)
+void	initialize_data(t_vars *vars)
 {
 	int	y;
 	int	x;
 
 	y = 0;
 	x = 0;
+	vars->count_moves = 0;
+	vars->count_collectible = 0;
 	while (vars->map[y])
 	{
 		x = 0;
 		while (vars->map[y][x])
 		{
-			initialize_c();
-			initialize_e();
-		x++;
+			initialize_c(vars, y, x);
+			initialize_e(vars, y, x);
+			initialize_p(vars, y, x);
+			x++;
 		}
 		y++;
 	}
-	initialize_map_size(y, x);
-vars.count_moves = 0;
-	vars.count_collectible = 0;
+	initialize_map_size(vars, y, x);
 }
 
 int	main(int argc, char *argv[])
@@ -70,17 +79,16 @@ int	main(int argc, char *argv[])
 	printf("\n%s\n", line);
 	vars.map = ft_split(line, '\n');
 	free(line);
-	
-	initialize(vars);
-	handle_map(&vars);
+	initialize_data(&vars);
+	check_map(&vars);
 
 	open_window(&vars);
-	setup_image(&vars);
-	display_image(&vars);
+	setup_images(&vars);
+	initialize_images(&vars);
 
 	mlx_hook(vars.win, 17, 1L << 0, ft_exit, &vars);
 	mlx_key_hook(vars.win, key_press, &vars);
-	mlx_loop_hook(vars.mlx, display_image, &vars);
+	mlx_loop_hook(vars.mlx, update_images, &vars);
 	printf("\nEND\n");
 	mlx_loop(vars.mlx);
 	return (0);
