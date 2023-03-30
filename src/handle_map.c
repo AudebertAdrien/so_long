@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 15:24:19 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/29 17:34:19 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/30 12:26:25 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,16 @@ void	handle_map(t_vars *vars)
 	int	x;
 	int	tmp;
 
-	tmp = 0;
 	y = 0;
 	x = 0;
+	tmp = 0;
 	while (vars->map[y])
 	{
 		x = 0;
 		while (vars->map[y][x])
 		{
-			if (!ft_strchr("01CEP"vars->map[y][x]))
-				ft_is_error("Map doesn't contain the right elements");
+			if (!ft_strchr("01CEP", vars->map[y][x]))
+				ft_is_error("map doesn't contain the right elements");
 			if (vars->map[y][x] == 'C')
 				vars->count_collectible += 1;
 			if (vars->map[y][x] == 'E')
@@ -73,6 +73,5 @@ void	handle_map(t_vars *vars)
 	}
 	vars->map_y_size = y;
 	vars->map_x_size = x;
-
 	is_surrounded_by_wall(vars, y, x);
 }

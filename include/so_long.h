@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 16:04:10 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/29 15:30:34 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/30 12:10:27 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # include <errno.h>
 # include "../libft/libft.h"
 
-#define MLX_ERROR 1
+#define IMG_RES 32
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 100
