@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 15:20:00 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/30 17:20:49 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/31 20:32:33 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,18 @@ int	main(int argc, char *argv[])
 	check_map(&vars);
 	open_window(&vars);
 	setup_images(&vars);
-	initialize_images(&vars);
+	display_images(&vars);
+	is_exit_reachable(&vars);
+
 
 	mlx_hook(vars.win, 17, 1L << 0, ft_exit, &vars);
 	mlx_key_hook(vars.win, key_press, &vars);
-	mlx_loop_hook(vars.mlx, initialize_images, &vars);
+	mlx_loop_hook(vars.mlx, display_images, &vars);
 	printf("\nEND\n");
 	mlx_loop(vars.mlx);
 	return (0);
 }
-	/*
+	/*display_images
 	void *f;
 	void *args;
 

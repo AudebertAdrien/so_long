@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initialize_images.c                                :+:      :+:    :+:   */
+/*   display_images.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:14:41 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/30 16:41:29 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/31 19:32:14 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 
-int	initialize_images(t_vars *vars)
+int	display_images(t_vars *vars)
 {
 	int				y;
 	int				x;
@@ -39,6 +39,9 @@ int	initialize_images(t_vars *vars)
 			}
 			if (vars->map[y][x] == 'E')
 				mlx_put_image_to_window(vars->mlx, vars->win, vars->exit.img, x * IMG_RES, y * IMG_RES);
+			if (vars->map[y][x] == 'X')
+				mlx_put_image_to_window(vars->mlx, vars->win, vars->enemy.img, x * IMG_RES, y * IMG_RES);
+			
 			x++;			
 		}
 		y++;

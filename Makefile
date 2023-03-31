@@ -8,12 +8,13 @@ MLX_FLAG	= -Lmlx -lmlx -L/usr/lib -Imlx -lXext -lX11 -lm -lz
 SRCS		= src/main.c \
 			  src/so_long_utils.c \
 			  src/get_file.c \
+			  src/check_map.c \
+			  src/is_exit_reachable.c \
 			  src/open_window.c \
 			  src/setup_images.c \
 			  src/initialize_data.c \
-			  src/initialize_images.c \
+			  src/display_images.c \
 			  src/key_press.c \
-			  src/check_map.c \
 
 INC			= -I ./include -I ./libft -I ./mlx
 
