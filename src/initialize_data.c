@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 17:20:30 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/30 17:50:47 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/03/31 15:52:16 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,34 +17,6 @@ void	initialize_map_size(t_vars *vars, int y, int x)
 	vars->map_y_size = y;
 	vars->map_x_size = x;
 }
-
-/*
-void	initialize_c(t_vars *vars, int y, int x)
-{
-	if (vars->map[y][x] == 'C')
-		vars->count_collectible += 1;
-}
-
-void	initialize_e(t_vars *vars, int y, int x)
-{
-	if (vars->map[y][x] == 'E')
-	{
-		vars->exit.pos_y = y;
-		vars->exit.pos_x = x;
-		vars->count_exit += 1;
-	}
-}
-
-void	initialize_p(t_vars *vars, int y, int x)
-{
-	if (vars->map[y][x] == 'P')
-	{
-		vars->character.pos_y = y;
-		vars->character.pos_x = x;
-		vars->count_character += 1;
-	}
-}
-*/
 
 void	initialize_el(t_image_data *img, int *count, char el, int y, int x)
 {
@@ -73,9 +45,12 @@ void	initialize_data(t_vars *vars)
 		x = 0;
 		while (vars->map[y][x])
 		{
-			initialize_el(&vars->collectible, &vars->count_collectible, 'C', y, x);
-			initialize_el(&vars->exit, &vars->count_exit, 'E', y, x);
-			initialize_el(&vars->character, &vars->count_character, 'P', y, x);
+			if (vars->map[y][x] == 'C')
+				initialize_el(&vars->collectible, &vars->count_collectible, 'C', y, x);
+			if (vars->map[y][x] == 'E')
+				initialize_el(&vars->exit, &vars->count_exit, 'E', y, x);
+			if (vars->map[y][x] == 'P')
+				initialize_el(&vars->character, &vars->count_character, 'P', y, x);
 			x++;
 		}
 		y++;
