@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 16:04:10 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/31 19:30:21 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/04/01 18:55:16 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,16 @@ typedef struct s_vars {
 	void	*mlx;
 	void	*win;
 	char	**map;
+	char	**map_cpy;
 	int		map_y_size;
 	int		map_x_size;
 	int		count_moves;
 	int		count_collectible;
 	int		count_exit;
 	int		count_character;
+
+	int		exit_parsed;	
+	int		collectible_parsed;
 	
 	t_image_data background;
 	t_image_data wall;
@@ -69,6 +73,8 @@ int		key_press(int keycode, t_vars *vars);
 int		cross_button(t_vars *vars);
 void	check_map(t_vars *vars);
 void	is_exit_reachable(t_vars *vars);
+
+char	**ft_duplicate_map(t_vars *vars);
 
 void	ft_is_error(char *ptr);
 int		ft_exit(t_vars *vars);

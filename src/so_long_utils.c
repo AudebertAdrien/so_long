@@ -6,11 +6,39 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:05:53 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/29 14:24:25 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/04/01 20:09:44 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+char	**ft_duplicate_map(t_vars *vars)
+{
+	char	**map_cpy;
+	int		y;
+	int		x;
+
+	y = 0;
+	map_cpy = malloc(sizeof(char *) * (vars->map_y_size) + 1);
+	if (!map_cpy)
+		return (NULL);
+	while (y < vars->map_y_size)
+	{
+		x = 0;
+		map_cpy[y] = malloc(sizeof(char) * (vars->map_x_size) + 1);
+		if (!map_cpy[y])
+			return (NULL);
+		while (x < vars->map_x_size)
+		{
+			map_cpy[y][x] = vars->map[y][x];
+			x++;
+		}
+		map_cpy[y][x] = '\0';
+		y++;
+	}
+	map_cpy[y] = NULL;
+	return (map_cpy);
+}
 
 int	check_file_name(char *map_name)
 {
@@ -51,9 +79,10 @@ int	ft_exit(t_vars *vars)
 	mlx_destroy_image(vars->mlx, vars->collectible.img);
 	mlx_destroy_image(vars->mlx, vars->exit.img);
 	mlx_destroy_image(vars->mlx, vars->character.img);
+	mlx_destroy_image(vars->mlx, vars->enemy.img);
 	mlx_destroy_display(vars->mlx);
-	free(vars->mlx);
 	free_map(vars->map);
+	free(vars->mlx);
 	exit(0);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 17:20:30 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/31 15:52:16 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/04/01 19:29:29 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ void	initialize_data(t_vars *vars)
 	vars->count_collectible = 0;
 	vars->count_exit = 0;
 	vars->count_character = 0;
+	vars->exit_parsed = 0;
+	vars->collectible_parsed = 0;
 	while (vars->map[y])
 	{
 		x = 0;

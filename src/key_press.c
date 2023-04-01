@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:12:37 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/30 16:36:49 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/04/01 18:33:28 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	move_character(t_vars *vars, int line, int column)
 	int exit_x = vars->exit.pos_x;
 
 	vars->count_moves += 1;
-	printf("count: %d\n", vars->count_moves);
+	//printf("count: %d\n", vars->count_moves);
 
 	if (vars->map[p_pos_y + line][p_pos_x + column] == 'E')
 	{
@@ -62,7 +62,7 @@ void	move_character(t_vars *vars, int line, int column)
 
 int	key_press(int keycode, t_vars *vars)
 {
-	printf("keycode :%d", keycode);
+	//printf("keycode :%d", keycode);
 	if (keycode == 65307)
 		ft_exit(vars);
 	if (keycode == 119)
