@@ -13,7 +13,8 @@ SRCS		= src/main.c \
 			  src/open_window.c \
 			  src/setup_images.c \
 			  src/initialize_data.c \
-			  src/display_images.c \
+			  src/initialize_images.c \
+			  src/update_images.c \
 			  src/key_press.c \
 
 INC			= -I ./include -I ./libft -I ./mlx

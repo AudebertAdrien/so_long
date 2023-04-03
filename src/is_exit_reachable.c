@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 19:12:22 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/04/01 19:38:06 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/04/03 19:08:54 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,7 @@ int	parse_map(t_vars *vars, int y, int x)
 	if (vars->exit_parsed == 1 && vars->collectible_parsed == vars->count_collectible)
 		return (1); 
 	if (vars->map_cpy[y][x] == 'E')
-	{
 		vars->exit_parsed = 1;
-		return (0);
-	}
 	if (vars->map_cpy[y][x] == '1')
 		return (0);
 	if (vars->map_cpy[y][x] == 'C')
@@ -47,5 +44,6 @@ void	is_exit_reachable(t_vars *vars)
 		ft_is_error("Pathfinding isn't reachable");
 	else
 		printf("Is reachable");
+	free_map(vars->map_cpy);
 	return ;
 }

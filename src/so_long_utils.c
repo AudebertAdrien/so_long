@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:05:53 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/04/01 20:09:44 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/04/03 10:09:21 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ char	**ft_duplicate_map(t_vars *vars)
 	int		x;
 
 	y = 0;
-	map_cpy = malloc(sizeof(char *) * (vars->map_y_size) + 1);
+	map_cpy = malloc(sizeof(char *) * (vars->map_y_size + 1));
 	if (!map_cpy)
 		return (NULL);
 	while (y < vars->map_y_size)
 	{
 		x = 0;
-		map_cpy[y] = malloc(sizeof(char) * (vars->map_x_size) + 1);
+		map_cpy[y] = malloc((sizeof(char) * (vars->map_x_size)) + 1);
 		if (!map_cpy[y])
 			return (NULL);
 		while (x < vars->map_x_size)

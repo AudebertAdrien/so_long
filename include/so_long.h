@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 16:04:10 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/04/01 18:55:16 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/04/03 12:15:01 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct s_vars {
 	char	**map_cpy;
 	int		map_y_size;
 	int		map_x_size;
+
 	int		count_moves;
 	int		count_collectible;
 	int		count_exit;
@@ -68,7 +69,8 @@ char	*get_file();
 int		open_window(t_vars *vars);
 void	setup_images(t_vars *vars);
 void	initialize_data(t_vars *vars);
-int		display_images(t_vars *vars);
+void	initialize_images(t_vars *vars);
+int		update_images(t_vars *vars);
 int		key_press(int keycode, t_vars *vars);
 int		cross_button(t_vars *vars);
 void	check_map(t_vars *vars);
