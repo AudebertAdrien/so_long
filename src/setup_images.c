@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 14:26:53 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/31 19:30:32 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/04/04 17:19:06 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ void	file_to_image(t_vars *vars, t_image_data *obj)
 
 void	setup_images(t_vars *vars)
 {
-	vars->background.addr = "./images/white.xpm";
-	vars->wall.addr = "./images/red.xpm";
-	vars->collectible.addr = "./images/yellow.xpm";
-	vars->exit.addr = "./images/green.xpm";
-	vars->character.addr = "./images/blue.xpm";
+	vars->character.addr = "./images/character_front.xpm";
+	vars->background.addr = "./images/background.xpm";
+	vars->wall.addr = "./images/wall.xpm";
+	vars->collectible.addr = "./images/collectible.xpm";
+	vars->exit.addr = "./images/exit.xpm";
 	vars->enemy.addr = "./images/pink.xpm";
 
 	file_to_image(vars, &(vars->background));
