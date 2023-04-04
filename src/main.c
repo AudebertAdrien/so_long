@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 15:20:00 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/04/03 15:50:28 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/04/04 13:44:20 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int	main(int argc, char *argv[])
 	check_map(&vars);
 	is_exit_reachable(&vars);
 
-
 	open_window(&vars);
 	setup_images(&vars);
 	initialize_images(&vars);
@@ -39,7 +38,7 @@ int	main(int argc, char *argv[])
 
 	mlx_hook(vars.win, 17, 1L << 0, ft_exit, &vars);
 	mlx_key_hook(vars.win, key_press, &vars);
-	//mlx_loop_hook(vars.mlx, update_images, &vars);
+	mlx_loop_hook(vars.mlx, update_images, &vars);
 	printf("\nEND\n");
 	mlx_loop(vars.mlx);
 	return (0);

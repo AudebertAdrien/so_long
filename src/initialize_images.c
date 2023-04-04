@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 11:52:33 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/04/03 18:59:41 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/04/04 13:47:13 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@ void	initialize_images(t_vars *vars)
 {
 	int				y;
 	int				x;
-	char 			*counted_moves; 
 
-	counted_moves = ft_itoa(vars->count_moves);
 	y = 0;
 	while (vars->map[y])
 	{
@@ -48,6 +46,4 @@ void	initialize_images(t_vars *vars)
 		}
 		y++;
 	}
-	mlx_string_put(vars->mlx, vars->win, 10, 10, 0x000000 , counted_moves);
-	free(counted_moves);
 }
