@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:12:37 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/04/04 15:21:18 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/04/04 17:38:49 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	move_character(t_vars *vars, int new_y, int new_x)
 
 	counted_moves = ft_itoa(vars->count_moves);
 	display_images(vars, vars->wall.img, 0,  0); 
-	mlx_string_put(vars->mlx, vars->win, 10,  20, 0x000000 , counted_moves);
+	mlx_string_put(vars->mlx, vars->win, 14,  18, 0xFF0000 , counted_moves);
 	free(counted_moves);
 	return ;
 }
