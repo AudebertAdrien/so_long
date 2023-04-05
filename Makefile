@@ -41,12 +41,16 @@ $(NAME): $(OBJ)
 	@$(CC) $^ -o $@ -Llibft -lft $(MLX_FLAG)
 	@echo "\n==END==\n"
 
+clean_mlx:
+	@make clean -s -C ./mlx
+
+clean_lft:
+	@make fclean -s -C ./libft
+
 clean:
 	@rm -rf $(OBJ)
-	@rm -rf libft/*.o
-	@rm -rf mlx/*.o
 
-fclean: clean
+fclean: clean clean_mlx clean_lft 
 	@rm -f $(NAME)
 
 re: fclean all
