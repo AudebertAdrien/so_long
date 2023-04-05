@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 16:04:10 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/04/05 15:11:31 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/04/05 16:52:23 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,13 @@
 
 # include "../libft/libft.h"
 
-
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 100
 # endif
 
-#define IMG_RES 32
+# define IMG_RES 32
 
 typedef struct s_image_data {
-
 	void	*img;
 	char	*addr;
 	int		img_width;
@@ -43,31 +41,27 @@ typedef struct s_image_data {
 }	t_image_data;
 
 typedef struct s_vars {
-	void	*mlx;
-	void	*win;
-	char	**map;
-	char	**map_cpy;
-	int		map_y_size;
-	int		map_x_size;
-
-	int		count_moves;
-	int		count_collectible;
-	int		count_exit;
-	int		count_character;
-
-	int		exit_parsed;	
-	int		collectible_parsed;
-	
-	t_image_data background;
-	t_image_data wall;
-	t_image_data collectible;
-	t_image_data exit;
-	t_image_data character;
-	t_image_data enemy;
-
+	void			*mlx;
+	void			*win;
+	char			**map;
+	char			**map_cpy;
+	int				map_y_size;
+	int				map_x_size;
+	int				count_moves;
+	int				count_collectible;
+	int				count_exit;
+	int				count_character;
+	int				exit_parsed;	
+	int				collectible_parsed;
+	t_image_data	background;
+	t_image_data	wall;
+	t_image_data	collectible;
+	t_image_data	exit;
+	t_image_data	character;
+	t_image_data	enemy;
 }	t_vars;
 
-char	*get_file();
+char	*get_file(char *map_name);
 int		open_window(t_vars *vars);
 void	setup_images(t_vars *vars);
 void	initialize_data(t_vars *vars);
