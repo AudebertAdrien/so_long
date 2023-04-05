@@ -1,6 +1,6 @@
 NAME		= so_long
 
-CC			= gcc 
+CC			= gcc -g 
 CFLAGS		= -Wall -Wextra -Werror 
 
 MLX_FLAG	= -Lmlx -lmlx -L/usr/lib -Imlx -lXext -lX11 -lm -lz
@@ -15,6 +15,7 @@ SRCS		= src/main.c \
 			  src/initialize_data.c \
 			  src/initialize_images.c \
 			  src/key_press.c \
+			  src/duplicate_map.c \
 
 INC			= -I ./include -I ./libft -I ./mlx
 
@@ -28,7 +29,7 @@ lft:
 obj/%.o: src/%.c
 	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
-all: lft $(NAME) 
+all: $(NAME) 
 
 $(NAME): $(OBJ)
 	@echo "\nMake so_long\n"

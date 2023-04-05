@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 17:20:30 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/04/01 19:29:29 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/04/05 16:42:47 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,36 @@ void	initialize_map_size(t_vars *vars, int y, int x)
 	vars->map_x_size = x;
 }
 
-void	initialize_el(t_image_data *img, int *count, char el, int y, int x)
+void	define_elements(t_vars *vars, int y, int x)
 {
-	if (el != 'C')
+	if (vars->map[y][x] == 'C')
 	{
-		img->pos_y = y;
-		img->pos_x = x;
+		vars->collectible.pos_y = y;
+		vars->collectible.pos_x = x;
+		vars->count_collectible++;
 	}
-	if (count)
-		(*count)++;
+	if (vars->map[y][x] == 'E')
+	{
+		vars->exit.pos_y = y;
+		vars->exit.pos_x = x;
+		vars->count_exit++;
+	}
+	if (vars->map[y][x] == 'P')
+	{
+		vars->character.pos_y = y;
+		vars->character.pos_x = x;
+		vars->count_character++;
+	}
+}
+
+void	setup_struct_variable(t_vars *vars)
+{
+	vars->count_moves = 0;
+	vars->count_collectible = 0;
+	vars->count_exit = 0;
+	vars->count_character = 0;
+	vars->exit_parsed = 0;
+	vars->collectible_parsed = 0;
 }
 
 void	initialize_data(t_vars *vars)
@@ -36,23 +57,13 @@ void	initialize_data(t_vars *vars)
 
 	y = 0;
 	x = 0;
-	vars->count_moves = 0;
-	vars->count_collectible = 0;
-	vars->count_exit = 0;
-	vars->count_character = 0;
-	vars->exit_parsed = 0;
-	vars->collectible_parsed = 0;
+	setup_struct_variable(vars);
 	while (vars->map[y])
 	{
 		x = 0;
 		while (vars->map[y][x])
 		{
-			if (vars->map[y][x] == 'C')
-				initialize_el(&vars->collectible, &vars->count_collectible, 'C', y, x);
-			if (vars->map[y][x] == 'E')
-				initialize_el(&vars->exit, &vars->count_exit, 'E', y, x);
-			if (vars->map[y][x] == 'P')
-				initialize_el(&vars->character, &vars->count_character, 'P', y, x);
+			define_elements(vars, y, x);
 			x++;
 		}
 		y++;

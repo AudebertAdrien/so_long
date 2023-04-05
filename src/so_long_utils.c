@@ -6,38 +6,15 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:05:53 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/04/03 10:09:21 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/04/05 15:15:38 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	**ft_duplicate_map(t_vars *vars)
+void	display_images(t_vars *vars, t_image_data *img, int pos_x, int pos_y)
 {
-	char	**map_cpy;
-	int		y;
-	int		x;
-
-	y = 0;
-	map_cpy = malloc(sizeof(char *) * (vars->map_y_size + 1));
-	if (!map_cpy)
-		return (NULL);
-	while (y < vars->map_y_size)
-	{
-		x = 0;
-		map_cpy[y] = malloc((sizeof(char) * (vars->map_x_size)) + 1);
-		if (!map_cpy[y])
-			return (NULL);
-		while (x < vars->map_x_size)
-		{
-			map_cpy[y][x] = vars->map[y][x];
-			x++;
-		}
-		map_cpy[y][x] = '\0';
-		y++;
-	}
-	map_cpy[y] = NULL;
-	return (map_cpy);
+	mlx_put_image_to_window(vars->mlx, vars->win, img, pos_x, pos_y);
 }
 
 int	check_file_name(char *map_name)
@@ -56,7 +33,7 @@ void	ft_is_error(char *ptr)
 	exit(0);
 }
 
-void free_map(char **map)
+void	free_map(char **map)
 {
 	int	i;
 
@@ -71,7 +48,7 @@ void free_map(char **map)
 	free(map);
 }
 
-int	ft_exit(t_vars *vars)	
+int	ft_exit(t_vars *vars)
 {
 	mlx_destroy_window(vars->mlx, vars->win);
 	mlx_destroy_image(vars->mlx, vars->background.img);
@@ -79,11 +56,9 @@ int	ft_exit(t_vars *vars)
 	mlx_destroy_image(vars->mlx, vars->collectible.img);
 	mlx_destroy_image(vars->mlx, vars->exit.img);
 	mlx_destroy_image(vars->mlx, vars->character.img);
-	mlx_destroy_image(vars->mlx, vars->enemy.img);
 	mlx_destroy_display(vars->mlx);
 	free_map(vars->map);
 	free(vars->mlx);
 	exit(0);
 	return (0);
 }
-

@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 16:04:10 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/04/05 14:19:24 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/04/05 15:11:31 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,15 @@
 # include <fcntl.h>
 # include <mlx.h>
 # include <errno.h>
+
 # include "../libft/libft.h"
 
-#define IMG_RES 32
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 100
 # endif
+
+#define IMG_RES 32
 
 typedef struct s_image_data {
 
@@ -76,6 +78,7 @@ void	check_map(t_vars *vars);
 void	is_exit_reachable(t_vars *vars);
 
 char	**ft_duplicate_map(t_vars *vars);
+void	display_images(t_vars *vars, t_image_data *img, int pos_x, int pos_y);
 
 void	ft_is_error(char *ptr);
 int		ft_exit(t_vars *vars);

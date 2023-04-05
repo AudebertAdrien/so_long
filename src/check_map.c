@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 15:24:19 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/03/30 17:14:54 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/04/05 16:11:43 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	is_square(int tmp, int x, int y)
 
 void	is_surrounded_by_wall(t_vars *vars, int max_y, int max_x)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;

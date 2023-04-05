@@ -6,17 +6,42 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 11:52:33 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/04/04 17:41:27 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/04/05 15:55:31 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+void	set_up_images(t_vars *vars, int y, int x)
+{
+	int	*p_y;
+	int	*p_x;
+
+	p_y = &vars->character.pos_y;
+	p_x = &vars->character.pos_x;
+	if (vars->map[y][x] == '0')
+		display_images(vars, vars->background.img, x * IMG_RES, y * IMG_RES);
+	if (vars->map[y][x] == '1')
+		display_images(vars, vars->wall.img, x * IMG_RES, y * IMG_RES);
+	if (vars->map[y][x] == 'C')
+		display_images(vars, vars->collectible.img, x * IMG_RES, y * IMG_RES);
+	if (vars->map[y][x] == 'P')
+	{
+		*p_y = y;
+		*p_x = x;
+		display_images(vars, vars->character.img, \
+				*p_x * IMG_RES, *p_y * IMG_RES);
+		vars->map[y][x] = '0';
+	}
+	if (vars->map[y][x] == 'E')
+		display_images(vars, vars->exit.img, x * IMG_RES, y * IMG_RES);
+}
+
 void	initialize_images(t_vars *vars)
 {
 	int				y;
 	int				x;
-	char 			*counted_moves; 
+	char			*counted_moves;
 
 	counted_moves = ft_itoa(vars->count_moves);
 	y = 0;
@@ -25,28 +50,10 @@ void	initialize_images(t_vars *vars)
 		x = 0;
 		while (vars->map[y][x])
 		{
-
-			if (vars->map[y][x] == '0')
-				mlx_put_image_to_window(vars->mlx, vars->win, vars->background.img, x * IMG_RES, y * IMG_RES);
-			if (vars->map[y][x] == '1')
-				mlx_put_image_to_window(vars->mlx, vars->win, vars->wall.img, x * IMG_RES, y * IMG_RES);
-			if (vars->map[y][x] == 'C')
-				mlx_put_image_to_window(vars->mlx, vars->win, vars->collectible.img, x * IMG_RES, y * IMG_RES);
-			if (vars->map[y][x] == 'P')
-			{
-				vars->character.pos_y = y;
-				vars->character.pos_x = x;
-				mlx_put_image_to_window(vars->mlx, vars->win, vars->character.img, vars->character.pos_x * IMG_RES, vars->character.pos_y * IMG_RES);
-				vars->map[y][x] = '0';
-			}
-			if (vars->map[y][x] == 'E')
-				mlx_put_image_to_window(vars->mlx, vars->win, vars->exit.img, x * IMG_RES, y * IMG_RES);
-			if (vars->map[y][x] == 'X')
-				mlx_put_image_to_window(vars->mlx, vars->win, vars->enemy.img, x * IMG_RES, y * IMG_RES);
-			
-			x++;			
+			set_up_images(vars, y, x);
+			x++;
 		}
 		y++;
 	}
-	mlx_string_put(vars->mlx, vars->win, 14,  18, 0xFF0000 , counted_moves);
+	mlx_string_put(vars->mlx, vars->win, 14, 18, 0xFF0000, counted_moves);
 }
