@@ -21,15 +21,20 @@ INC			= -I ./include -I ./libft -I ./mlx
 
 OBJ			= $(SRCS:src/%.c=obj/%.o)
 
-lft: 
+make_lft: 
 	@echo "\nMake libft\n"
 	@make re -s -C ./libft
 	@echo "\n==END==\n"
-	
+
+make_mlx:
+	@echo "\nMake mlx\n"
+	@make re -s -C ./mlx
+	@echo "\n==END==\n"
+
 obj/%.o: src/%.c
 	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
-all: $(NAME) 
+all: make_mlx make_lft $(NAME) 
 
 $(NAME): $(OBJ)
 	@echo "\nMake so_long\n"
