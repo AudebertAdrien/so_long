@@ -1,0 +1,8 @@
+
+b01 > b04 	: Murs non fermés
+b5			: Longeur lignes
+b06 > b07 	: P
+b08		 	: E
+b09		 	: C
+b10		 	: Char interdit <<<<<<<<<<<< ne marche pas !!!!!!!!!!!
+b11		 	: une fraise inatteignable.
