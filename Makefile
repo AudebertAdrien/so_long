@@ -1,9 +1,9 @@
 NAME		= so_long
 
-CC			= gcc -g 
+CC			= gcc 
 CFLAGS		= -Wall -Wextra -Werror 
 
-MLX_FLAG	= -Lmlx -lmlx -L/usr/lib -Imlx -lXext -lX11 -lm -lz
+MLX_FLAG	= -Lmlx -lmlx -Imlx -lXext -lX11 -lm -lz
 
 SRCS		= src/main.c \
 			  src/so_long_utils.c \
