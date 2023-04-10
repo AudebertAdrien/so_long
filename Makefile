@@ -35,7 +35,7 @@ create_directory :
 obj/%.o: src/%.c create_directory
 	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
-all: make_mlx make_lft $(NAME) 
+all: make_lft $(NAME) 
 
 $(NAME): $(OBJ)
 	@echo ✅ "Compile so_long\n"
@@ -51,7 +51,7 @@ clean:
 	@rm -rf $(OBJ)
 	@rm -rf obj/
 
-fclean: clean clean_mlx clean_lft 
+fclean: clean clean_lft 
 	@rm -f $(NAME)
 
 re: fclean all
