@@ -21,30 +21,22 @@ INC			= -I ./include -I ./libft -I ./mlx
 
 OBJ			= $(SRCS:src/%.c=obj/%.o)
 
-make_lft: 
-	@echo ✅ "Compile libft\n"
-	@make re -s -C ./libft
-
-make_mlx:
-	@echo ✅ "Compile mlx\n"
-	@make re -s -C ./mlx
-
-create_directory :
-	@mkdir -p obj
-
-obj/%.o: src/%.c create_directory
+obj/%.o: src/%.c create_obj_dir
 	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
-all: make_lft $(NAME) 
+all: $(NAME) 
+
+create_obj_dir :
+	@mkdir -p obj
 
 $(NAME): $(OBJ)
+	@echo ✅ "Compile libft\n"
+	@make re -s -C ./libft
 	@echo ✅ "Compile so_long\n"
 	@$(CC) $^ -o $@ -Llibft -lft $(MLX_FLAG)
 
-clean_mlx:
-	@make clean -s -C ./mlx
-
 clean_lft:
+	@echo ✅ "Clean libft\n"
 	@make fclean -s -C ./libft
 
 clean:
@@ -52,13 +44,11 @@ clean:
 	@rm -rf obj/
 
 fclean: clean clean_lft 
+	@echo ✅ "Clean so_long\n"
 	@rm -f $(NAME)
 
 re: fclean all
 
 .PHONY: all clean fclean re \
-	make_lft \
-	make_mlx \
 	create_directory \
-	clean_mlx \
 	clean_lft \
