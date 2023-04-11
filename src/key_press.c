@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:12:37 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/04/11 15:12:35 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/04/11 15:22:51 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ void	counted_moves(t_vars *vars)
 int	display_character(t_vars *vars, int new_x, int new_y)
 {
 	if (vars->character_direction == 'T')
-		display_images(vars, vars->character_top.img, new_x * IMG_RES, new_y * IMG_RES);
+		display_images(vars, vars->character_top.img, new_x, new_y);
 	if (vars->character_direction == 'R')
-		display_images(vars, vars->character_right.img, new_x * IMG_RES, new_y * IMG_RES);
+		display_images(vars, vars->character_right.img, new_x, new_y);
 	if (vars->character_direction == 'L')
-		display_images(vars, vars->character_left.img, new_x * IMG_RES, new_y * IMG_RES);
+		display_images(vars, vars->character_left.img, new_x, new_y);
 	if (vars->character_direction == 'B')
-		display_images(vars, vars->character.img, new_x * IMG_RES, new_y * IMG_RES);
+		display_images(vars, vars->character.img, new_x, new_y);
 	return (0);
 }
 
@@ -57,7 +57,7 @@ int	move_character(t_vars *vars, int new_y, int new_x)
 		display_images(vars, vars->exit.img, pos_x, pos_y);
 	vars->character.pos_y = new_y;
 	vars->character.pos_x = new_x;
-	display_character(vars, new_x, new_y); 
+	display_character(vars, new_x * IMG_RES, new_y * IMG_RES);
 	vars->count_moves += 1;
 	counted_moves(vars);
 	return (0);
