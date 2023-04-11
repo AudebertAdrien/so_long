@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 16:04:10 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/04/05 16:52:23 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/04/11 10:23:12 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct s_vars {
 	char			**map_cpy;
 	int				map_y_size;
 	int				map_x_size;
+	char			character_direction;
 	int				count_moves;
 	int				count_collectible;
 	int				count_exit;
@@ -62,21 +63,20 @@ typedef struct s_vars {
 }	t_vars;
 
 char	*get_file(char *map_name);
-int		open_window(t_vars *vars);
-void	setup_images(t_vars *vars);
 void	initialize_data(t_vars *vars);
-void	initialize_images(t_vars *vars);
-int		key_press(int keycode, t_vars *vars);
-int		cross_button(t_vars *vars);
+char	**ft_duplicate_map(t_vars *vars);
 void	check_map(t_vars *vars);
 void	is_exit_reachable(t_vars *vars);
+int		open_window(t_vars *vars);
+void	setup_images(t_vars *vars);
+void	initialize_images(t_vars *vars);
+int		key_press(int keycode, t_vars *vars);
+int		update_images(t_vars *vars);
 
-char	**ft_duplicate_map(t_vars *vars);
 void	display_images(t_vars *vars, t_image_data *img, int pos_x, int pos_y);
-
-void	ft_is_error(char *ptr);
-int		ft_exit(t_vars *vars);
-void	free_map(char **map);
 int		check_file_name(char *map_name);
+void	ft_is_error(char *ptr);
+void	free_map(char **map);
+int		ft_exit(t_vars *vars);
 
 #endif

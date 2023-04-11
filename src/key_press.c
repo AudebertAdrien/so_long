@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:12:37 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/04/05 16:14:13 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/04/11 11:09:17 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,24 @@ int	key_press(int keycode, t_vars *vars)
 	if (keycode == 65307)
 		ft_exit(vars);
 	if (keycode == 119)
+	{
 		move_character(vars, vars->character.pos_y - 1, vars->character.pos_x);
+		vars->character_direction = 'T';
+	}
 	if (keycode == 97)
+	{
 		move_character(vars, vars->character.pos_y, vars->character.pos_x - 1);
+		vars->character_direction = 'L';
+	}
 	if (keycode == 115)
+	{
 		move_character(vars, vars->character.pos_y + 1, vars->character.pos_x);
+		vars->character_direction = 'B';
+	}
 	if (keycode == 100)
+	{
 		move_character(vars, vars->character.pos_y, vars->character.pos_x + 1);
+		vars->character_direction = 'R';
+	}
 	return (0);
 }

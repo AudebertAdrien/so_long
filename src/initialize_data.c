@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 17:20:30 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/04/05 16:42:47 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/04/11 09:58:56 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	define_elements(t_vars *vars, int y, int x)
 
 void	setup_struct_variable(t_vars *vars)
 {
+	vars->character_direction = 'B';
 	vars->count_moves = 0;
 	vars->count_collectible = 0;
 	vars->count_exit = 0;
