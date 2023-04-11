@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:12:37 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/04/11 11:09:17 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/04/11 15:12:35 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,28 @@ void	counted_moves(t_vars *vars)
 	free(counted_moves);
 }
 
-void	move_character(t_vars *vars, int new_y, int new_x)
+int	display_character(t_vars *vars, int new_x, int new_y)
+{
+	if (vars->character_direction == 'T')
+		display_images(vars, vars->character_top.img, new_x * IMG_RES, new_y * IMG_RES);
+	if (vars->character_direction == 'R')
+		display_images(vars, vars->character_right.img, new_x * IMG_RES, new_y * IMG_RES);
+	if (vars->character_direction == 'L')
+		display_images(vars, vars->character_left.img, new_x * IMG_RES, new_y * IMG_RES);
+	if (vars->character_direction == 'B')
+		display_images(vars, vars->character.img, new_x * IMG_RES, new_y * IMG_RES);
+	return (0);
+}
+
+int	move_character(t_vars *vars, int new_y, int new_x)
 {
 	int		pos_y;
 	int		pos_x;
 
 	pos_y = vars->character.pos_y * IMG_RES;
 	pos_x = vars->character.pos_x * IMG_RES;
-	vars->count_moves += 1;
 	if (vars->map[new_y][new_x] == '1')
-		return ;
+		return (0);
 	if (vars->map[new_y][new_x] == 'C')
 	{
 		vars->count_collectible -= 1;
@@ -45,9 +57,10 @@ void	move_character(t_vars *vars, int new_y, int new_x)
 		display_images(vars, vars->exit.img, pos_x, pos_y);
 	vars->character.pos_y = new_y;
 	vars->character.pos_x = new_x;
-	display_images(vars, vars->character.img, new_x * IMG_RES, new_y * IMG_RES);
+	display_character(vars, new_x, new_y); 
+	vars->count_moves += 1;
 	counted_moves(vars);
-	return ;
+	return (0);
 }
 
 int	key_press(int keycode, t_vars *vars)
@@ -56,23 +69,23 @@ int	key_press(int keycode, t_vars *vars)
 		ft_exit(vars);
 	if (keycode == 119)
 	{
-		move_character(vars, vars->character.pos_y - 1, vars->character.pos_x);
 		vars->character_direction = 'T';
+		move_character(vars, vars->character.pos_y - 1, vars->character.pos_x);
 	}
 	if (keycode == 97)
 	{
-		move_character(vars, vars->character.pos_y, vars->character.pos_x - 1);
 		vars->character_direction = 'L';
+		move_character(vars, vars->character.pos_y, vars->character.pos_x - 1);
 	}
 	if (keycode == 115)
 	{
-		move_character(vars, vars->character.pos_y + 1, vars->character.pos_x);
 		vars->character_direction = 'B';
+		move_character(vars, vars->character.pos_y + 1, vars->character.pos_x);
 	}
 	if (keycode == 100)
 	{
-		move_character(vars, vars->character.pos_y, vars->character.pos_x + 1);
 		vars->character_direction = 'R';
+		move_character(vars, vars->character.pos_y, vars->character.pos_x + 1);
 	}
 	return (0);
 }

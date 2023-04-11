@@ -1,6 +1,6 @@
 NAME		= so_long
 
-CC			= gcc 
+CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror 
 
 MLX_FLAG	= -Lmlx -lmlx -Imlx -lXext -lX11 -lm -lz
@@ -16,7 +16,6 @@ SRCS		= src/main.c \
 			  src/setup_images.c \
 			  src/initialize_images.c \
 			  src/key_press.c \
-			  src/update_images.c \
 
 INC			= -I ./include -I ./libft -I ./mlx
 

@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 15:20:00 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/04/11 11:05:57 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/04/11 14:55:19 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	main(int argc, char *argv[])
 	initialize_images(&vars);
 	mlx_hook(vars.win, 17, 1L << 0, ft_exit, &vars);
 	mlx_key_hook(vars.win, key_press, &vars);
-	mlx_loop_hook(vars.mlx, update_images, &vars);
 	mlx_loop(vars.mlx);
 	return (0);
 }

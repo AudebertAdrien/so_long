@@ -1,6 +1,6 @@
 NAME		= libft.a
 
-CC			= gcc -g
+CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror
 
 SRCS		= ft_atoi.c \

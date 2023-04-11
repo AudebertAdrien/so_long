@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 16:04:10 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/04/11 10:23:12 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/04/11 14:55:49 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,9 @@ typedef struct s_vars {
 	t_image_data	collectible;
 	t_image_data	exit;
 	t_image_data	character;
+	t_image_data	character_top;
+	t_image_data	character_left;
+	t_image_data	character_right;
 	t_image_data	enemy;
 }	t_vars;
 
@@ -71,7 +74,6 @@ int		open_window(t_vars *vars);
 void	setup_images(t_vars *vars);
 void	initialize_images(t_vars *vars);
 int		key_press(int keycode, t_vars *vars);
-int		update_images(t_vars *vars);
 
 void	display_images(t_vars *vars, t_image_data *img, int pos_x, int pos_y);
 int		check_file_name(char *map_name);
