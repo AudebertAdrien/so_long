@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 16:04:10 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/04/11 14:55:49 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/04/12 17:12:07 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,11 @@ int		key_press(int keycode, t_vars *vars);
 
 void	display_images(t_vars *vars, t_image_data *img, int pos_x, int pos_y);
 int		check_file_name(char *map_name);
-void	ft_is_error(char *ptr);
-void	free_map(char **map);
+void	error_message(char *ptr);
+void	is_arg_error(char *ptr);
+void	is_map_error(t_vars *vars, char *ptr);
+void	is_mlx_error(t_vars *vars, char *ptr);
 int		ft_exit(t_vars *vars);
+void	free_map(char **map);
 
 #endif

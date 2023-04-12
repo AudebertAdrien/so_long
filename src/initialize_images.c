@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 11:52:33 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/04/05 15:55:31 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/04/12 15:28:12 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,5 @@ void	initialize_images(t_vars *vars)
 		y++;
 	}
 	mlx_string_put(vars->mlx, vars->win, 14, 18, 0xFF0000, counted_moves);
+	free(counted_moves);
 }

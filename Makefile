@@ -16,6 +16,7 @@ SRCS		= src/main.c \
 			  src/setup_images.c \
 			  src/initialize_images.c \
 			  src/key_press.c \
+			  src/handle_error.c \
 
 INC			= -I ./include -I ./libft -I ./mlx
 

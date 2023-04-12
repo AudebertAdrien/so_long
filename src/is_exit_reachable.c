@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 19:12:22 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/04/05 17:02:45 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/04/12 16:12:10 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	is_exit_reachable(t_vars *vars)
 
 	res = parse_map(vars, vars->character.pos_y, vars->character.pos_x);
 	if (!res)
-		ft_is_error("Pathfinding isn't reachable");
+		is_map_error(vars, "Pathfinding isn't reachable");
 	free_map(vars->map_cpy);
 	return ;
 }

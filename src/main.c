@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 15:20:00 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/04/11 14:55:19 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/04/12 17:11:39 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int	main(int argc, char *argv[])
 	char	*line;
 
 	if (argc != 2)
-		ft_is_error("Must be only one argument");
+		is_arg_error("Must be only one argument");
 	if (check_file_name(argv[1]))
-		ft_is_error("The name of the card must end with .ber");
+		is_arg_error("The name of the card must end with .ber");
 	line = get_file(argv[1]);
 	vars.map = ft_split(line, '\n');
 	free(line);
