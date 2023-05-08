@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 15:24:19 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/04/12 15:52:05 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/05/08 10:59:57 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ void	is_surrounded_by_wall(t_vars *vars, int max_y, int max_x)
 		{
 			if (i == 0 && vars->map_cpy[i][j] != '1')
 				is_map_error(vars, "Map is not surrounded by walls");
-			if (vars->map_cpy[i][0] != '1' || vars->map_cpy[i][max_x - 1] != '1')
+			if (vars->map_cpy[i][0] != '1' ||
+					vars->map_cpy[i][max_x - 1] != '1')
 				is_map_error(vars, "Map is not surrounded by walls");
 			if (i == max_y - 1 && vars->map_cpy[i][j] != '1')
 				is_map_error(vars, "Map is not surrounded by walls");

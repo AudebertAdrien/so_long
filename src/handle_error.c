@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 16:18:40 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/04/12 16:26:27 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/05/08 10:58:56 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,3 @@ void	is_mlx_error(t_vars *vars, char *ptr)
 	free(vars->mlx);
 	exit(0);
 }
-

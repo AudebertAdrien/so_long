@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 14:39:20 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/04/12 17:24:50 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/05/08 11:06:00 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ char	*read_file(int fd)
 		bytes_read = read(fd, buf, BUFFER_SIZE);
 		if (bytes_read == -1)
 		{
-			error_message("read file error");
 			free(str);
 			return (NULL);
 		}
@@ -45,16 +44,16 @@ char	*read_file(int fd)
 	}
 	if (str[0] == '\0')
 	{
-		error_message("Emtpy file");
 		free(str);
-		exit(0);
+		return (NULL);
 	}
 	return (str);
 }
 
 char	*get_file(char *map_name)
 {
-	int	fd;
+	int		fd;
+	char	*str;
 
 	fd = open(map_name, O_RDONLY);
 	if (fd == -1)
@@ -62,5 +61,11 @@ char	*get_file(char *map_name)
 		error_message("open file error");
 		exit(0);
 	}
-	return (read_file(fd));
+	str = read_file(fd);
+	if (!str)
+	{
+		error_message("read or empty file");
+		exit(0);
+	}
+	return (str);
 }
