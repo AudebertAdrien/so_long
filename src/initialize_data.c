@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 17:20:30 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/04/11 09:58:56 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/05/08 09:45:07 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,9 @@ void	initialize_map_size(t_vars *vars, int y, int x)
 void	define_elements(t_vars *vars, int y, int x)
 {
 	if (vars->map[y][x] == 'C')
-	{
-		vars->collectible.pos_y = y;
-		vars->collectible.pos_x = x;
 		vars->count_collectible++;
-	}
 	if (vars->map[y][x] == 'E')
-	{
-		vars->exit.pos_y = y;
-		vars->exit.pos_x = x;
 		vars->count_exit++;
-	}
 	if (vars->map[y][x] == 'P')
 	{
 		vars->character.pos_y = y;

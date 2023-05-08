@@ -22,10 +22,10 @@ INC			= -I ./include -I ./libft -I ./mlx
 
 OBJ			= $(SRCS:src/%.c=obj/%.o)
 
+all: $(NAME) 
+
 obj/%.o: src/%.c create_obj_dir
 	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
-
-all: $(NAME) 
 
 create_obj_dir :
 	@mkdir -p obj
@@ -41,11 +41,11 @@ clean_lft:
 	@make fclean -s -C ./libft
 
 clean:
+	@echo ✅ "Clean so_long\n"
 	@rm -rf $(OBJ)
 	@rm -rf obj/
 
 fclean: clean clean_lft 
-	@echo ✅ "Clean so_long\n"
 	@rm -f $(NAME)
 
 re: fclean all

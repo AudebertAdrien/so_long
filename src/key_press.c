@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 09:12:37 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/04/12 16:13:13 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/05/08 10:00:52 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,10 @@ int	move_character(t_vars *vars, int new_y, int new_x)
 	}
 	if (vars->map[new_y][new_x] == 'E' && vars->count_collectible == 0)
 		ft_exit(vars);
-	if (vars->map[vars->character.pos_y][vars->character.pos_x] == '0')
-		display_images(vars, vars->background.img, pos_x, pos_y);
 	if (vars->map[vars->character.pos_y][vars->character.pos_x] == 'E')
 		display_images(vars, vars->exit.img, pos_x, pos_y);
+	if (vars->map[vars->character.pos_y][vars->character.pos_x] == '0')
+		display_images(vars, vars->background.img, pos_x, pos_y);
 	vars->character.pos_y = new_y;
 	vars->character.pos_x = new_x;
 	display_character(vars, new_x * IMG_RES, new_y * IMG_RES);
