@@ -6,7 +6,7 @@
 /*   By: aaudeber <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 15:24:19 by aaudeber          #+#    #+#             */
-/*   Updated: 2023/05/08 10:59:57 by aaudeber         ###   ########.fr       */
+/*   Updated: 2023/05/08 19:34:19 by aaudeber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,10 @@ void	check_map(t_vars *vars)
 	y = 0;
 	x = 0;
 	tmp = 0;
-	while (vars->map_cpy[y])
+	while (vars->map[y])
 	{
 		x = 0;
-		while (vars->map_cpy[y][x])
+		while (vars->map[y][x])
 		{
 			check_elements(vars, y, x);
 			x++;
